@@ -66,7 +66,6 @@ const updateUser = catchHandler(
       token as string,
       envVars.JWT_ACCESS_TOKEN_SECRET
     ) as JwtPayload;
-    console.log("verifiedToken:", verifiedToken);
     const updatedUser = await userServices.updateUser(
       userId,
       payload,
