@@ -7,6 +7,10 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: [true, "Name is required"],
     },
+    wallet : {
+      type: Schema.Types.ObjectId,
+      ref: "Wallet",
+    },
     email: {
       type: String,
       required: [true, "Email is required"],
