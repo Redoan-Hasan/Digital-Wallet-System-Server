@@ -8,7 +8,7 @@ import envVars from '../../config/env';
 import { JwtPayload } from 'jsonwebtoken';
 
 const credentialsLoging = async (payload: Partial<IUser>) => {
-  const isUserExist = await User.findOne({ email: payload.email });
+  const isUserExist = await User.findOne({ email: payload.email }).select("+password +pin");
   if (!isUserExist) {
     throw new AppError(httpStatus.BAD_REQUEST, "User does not exist");
   }
@@ -62,7 +62,7 @@ const changePassword = async (
   newPassword: string,
   decodedToken: JwtPayload
 ) => {
-  const user = await User.findById(decodedToken.id);
+  const user = await User.findById(decodedToken.id).select("+password");
   if (!user) {
     throw new AppError(httpStatus.NOT_FOUND, "User does not exist");
   }
@@ -84,7 +84,7 @@ const changePin = async (
   newPin: string,
   decodedToken: JwtPayload
 ) => {
-  const user = await User.findById(decodedToken.id);
+  const user = await User.findById(decodedToken.id).select("+pin");
   if (!user) {
     throw new AppError(httpStatus.NOT_FOUND, "User does not exist");
   }
