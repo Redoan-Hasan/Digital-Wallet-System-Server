@@ -19,7 +19,8 @@
 * [Overview](#-overview)
 * [Project Structure](#-project-structure)
 * [Key Features](#-key-features)
-* [Technology Stack](#-technology-stack)
+* [Core Technologies](#-core-technologies)
+* [All Dependencies](#-all-dependencies)
 * [API Endpoints](#-api-endpoints)
 * [Setup and Installation](#-setup-and-installation)
 * [Environment Variables](#-environment-variables)
@@ -43,9 +44,6 @@ The core goal is to provide a multi-tenant environment supporting three distinct
 
 The project follows a modular, feature-first architecture to ensure a clean and scalable codebase.
 
-<details>
-  <summary>Click to expand and see the folder structure</summary>
-
 ```
 src/
 ├── app/
@@ -62,7 +60,6 @@ src/
 ├── app.ts                # Express app configuration
 └── server.ts             # Server initialization
 ```
-</details>
 
 ---
 
@@ -86,7 +83,7 @@ src/
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Core Technologies
 
 This project leverages a modern and powerful stack to ensure scalability, security, and maintainability.
 
@@ -97,6 +94,37 @@ This project leverages a modern and powerful stack to ensure scalability, securi
 | **TypeScript** | Language | Ensures code quality and developer productivity by adding static types, which helps prevent common bugs in a financial application. |
 | **JWT & bcryptjs** | Security | Implements a strong security foundation. JWT provides stateless authentication, and bcryptjs ensures that user credentials are securely hashed. |
 | **Zod** | Validation | Provides a simple and powerful way to enforce data validation at the runtime level, ensuring data integrity before it hits the database. |
+
+---
+
+## 📦 All Dependencies
+
+### Production Dependencies
+| Package | Version | Description |
+| :--- | :--- | :--- |
+| `bcryptjs` | `^3.0.2` | For securely hashing user passwords and PINs. |
+| `cookie-parser`| `^1.4.7` | Middleware to parse `Cookie` header and populate `req.cookies`. |
+| `cors` | `^2.8.5` | Middleware to enable Cross-Origin Resource Sharing. |
+| `dotenv` | `^17.2.2` | Loads environment variables from a `.env` file. |
+| `express` | `^5.1.0` | Fast, unopinionated, minimalist web framework for Node.js. |
+| `http-status-codes` | `^2.3.0` | Constants for HTTP status codes. |
+| `jsonwebtoken` | `^9.0.2` | For generating and verifying JSON Web Tokens. |
+| `mongoose` | `^8.18.2` | Elegant MongoDB object modeling for Node.js. |
+| `zod` | `^4.1.11` | TypeScript-first schema declaration and validation library. |
+
+### Development Dependencies
+| Package | Version | Description |
+| :--- | :--- | :--- |
+| `@eslint/js` | `^9.36.0` | Core ESLint rules. |
+| `@types/cookie-parser` | `^1.4.9` | TypeScript definitions for `cookie-parser`. |
+| `@types/cors` | `^2.8.19` | TypeScript definitions for `cors`. |
+| `@types/dotenv` | `^6.1.1` | TypeScript definitions for `dotenv`. |
+| `@types/express` | `^5.0.3` | TypeScript definitions for `express`. |
+| `@types/jsonwebtoken` | `^9.0.10`| TypeScript definitions for `jsonwebtoken`. |
+| `eslint` | `^9.36.0` | For identifying and reporting on patterns in JavaScript. |
+| `ts-node-dev` | `^2.0.0` | Compiles TypeScript and restarts the node process on file changes. |
+| `typescript` | `^5.9.2` | Superset of JavaScript that adds static types. |
+| `typescript-eslint` | `^8.44.1` | ESLint plugin for TypeScript. |
 
 ---
 
@@ -155,9 +183,6 @@ Here is a summary of the available API endpoints.
 
 Create a `.env` file in the project root and add the following variables.
 
-<details>
-  <summary>Click to expand and see the environment variables</summary>
-
 ```env
 # Port for the server to run on
 PORT=5000
@@ -179,4 +204,3 @@ DEFAULT_ADMIN_EMAIL=admin@wallet.com
 DEFAULT_ADMIN_PASSWORD=adminpass
 DEFAULT_ADMIN_PIN=1234
 ```
-</details>
