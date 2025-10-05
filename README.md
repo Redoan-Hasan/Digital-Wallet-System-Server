@@ -219,32 +219,6 @@ DEFAULT_ADMIN_PIN=1234
 
 ---
 
-### Production Deployment
-
-1. Build the TypeScript code:
-   ```bash
-   npm run build
-   ```
-
-2. Start the production server:
-   ```bash
-   npm start
-   ```
-
-### Docker Deployment
-
-A Dockerfile is included for containerized deployment:
-
-```bash
-# Build the Docker image
-docker build -t digital-wallet-api .
-
-# Run the container
-docker run -p 5000:5000 -d digital-wallet-api
-```
-
----
-
 ## 🤝Contributing
 
 Contributions are welcome! Please follow these steps:
