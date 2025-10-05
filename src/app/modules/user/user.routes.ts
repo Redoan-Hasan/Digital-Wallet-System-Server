@@ -14,7 +14,27 @@ router.post(
 );
 router.get("/", checkAuth(Role.ADMIN), userController.getAllUsers);
 router.get("/me", checkAuth(...Object.values(Role)), userController.getMe);
+router.get(
+  "/all-pending-agents",
+  checkAuth(Role.ADMIN),
+  userController.getAllPendingAgents
+);
+router.get(
+  "/all-approved-agents",
+  checkAuth(Role.ADMIN),
+  userController.getAllApprovedAgents
+);
+router.patch(
+  "/make-me-agent",
+  checkAuth(Role.USER),
+  userController.makeMeAgent
+);
 router.get("/:id", checkAuth(Role.ADMIN), userController.getSingleUser);
+router.patch(
+  "/make-agent/:id",
+  checkAuth(Role.ADMIN),
+  userController.makeAgent
+);
 router.patch(
   "/:id",
   checkAuth(...Object.values(Role)),

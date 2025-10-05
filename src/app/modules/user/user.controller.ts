@@ -7,6 +7,8 @@ import { sendResponse } from "../../utils/sendResponse";
 import { JwtPayload } from "jsonwebtoken";
 import envVars from "../../config/env";
 import { verifyToken } from "../../utils/jwt";
+import { Role } from "./user.interface";
+import AppError from "../../errorHelpers/AppError";
 
 const createUser = catchHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -23,7 +25,10 @@ const createUser = catchHandler(
 
 const getAllUsers = catchHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const result = await userServices.getAllUsers();
+    if(req.user?.role !== Role.ADMIN){
+      throw new AppError(httpStatus.FORBIDDEN, "Only admin can access this route")
+    }
+    const result = await userServices.getAllUsers(req.query as Record<string, string>);
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -57,6 +62,35 @@ const getMe = catchHandler(
     });
   }
 );
+
+const getAllPendingAgents = catchHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    if(req.user?.role !== Role.ADMIN){
+      throw new AppError(httpStatus.FORBIDDEN, "Only admin can access this route")
+    }
+    const result = await userServices.getAllPendingAgents();
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "All pending agents retrieved successfully",
+      data: result,
+    });
+  }
+)
+const getAllApprovedAgents = catchHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    if(req.user?.role !== Role.ADMIN){
+      throw new AppError(httpStatus.FORBIDDEN, "Only admin can access this route")
+    }
+    const result = await userServices.getAllApprovedAgents();
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "All approved agents retrieved successfully",
+      data: result,
+    });
+  }
+)
 const updateUser = catchHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const userId = req.params.id;
@@ -79,6 +113,45 @@ const updateUser = catchHandler(
     });
   }
 );
+const makeMeAgent = catchHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const token = req.headers.authorization;
+    const verifiedToken = verifyToken(
+      token as string,
+      envVars.JWT_ACCESS_TOKEN_SECRET
+    ) as JwtPayload;
+    const updatedUser = await userServices.makeMeAgent(
+      verifiedToken
+    );
+    sendResponse(res, {
+      statusCode: httpStatus.OK,  
+      success: true,
+      message: "Your agent status has been changed successfully",
+      data: updatedUser,
+    });
+  }
+);
+
+const makeAgent = catchHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.params.id;
+    const token = req.headers.authorization;
+    const verifiedToken = verifyToken(
+      token as string,
+      envVars.JWT_ACCESS_TOKEN_SECRET
+    ) as JwtPayload;
+    const updatedUser = await userServices.makeAgent(
+      userId,
+      verifiedToken
+    );
+    sendResponse(res, {
+      statusCode: httpStatus.OK,  
+      success: true,
+      message: "User has been made an agent successfully",
+      data: updatedUser,
+    });
+  }
+);
 
 
 
@@ -88,4 +161,8 @@ export const userController = {
   getSingleUser,
   getMe,
   updateUser,
+  makeMeAgent,
+  makeAgent,
+  getAllPendingAgents,
+  getAllApprovedAgents
 };

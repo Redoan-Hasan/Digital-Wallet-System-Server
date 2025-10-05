@@ -19,11 +19,13 @@ const userSchema = new Schema<IUser>(
     password: {
       type: String,
       required: [true, "Password is required"],
+      select: false,
     },
     pin:{
       type: String,
       required: [true, "Pin is required"],
       minlength: 4,
+      select: false,
     },
     role: {
       type: String,

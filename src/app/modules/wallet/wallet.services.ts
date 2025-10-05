@@ -10,6 +10,8 @@ import { JwtPayload } from "jsonwebtoken";
 import { Transaction } from "../transaction/transaction.model";
 import { Wallet } from "./wallet.model";
 import { Role, Status } from "../user/user.interface";
+import { QueryBuilder } from "../../utils/QueryBuilder";
+import { walletSearchableFields } from "./wallet.constants";
 
 // add money for user and agent both
 const addMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
@@ -565,10 +567,62 @@ const sendMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
   }
 };
 
+const getMyWallet = async (decodedToken: JwtPayload) => {
+  const wallet = await Wallet.find({ user: decodedToken.id })
+    .select("-_id -transactions -createdAt -updatedAt")
+    .populate("user", "name email -_id");
+
+  if (!wallet) {
+    throw new AppError(httpStatus.NOT_FOUND, "Wallet does not exist");
+  }
+  return wallet;
+};
+const getSingleWallet = async (id: string) => {
+  const wallet = await Wallet.find({ _id: id })
+    .select(" -transactions -createdAt -updatedAt")
+    .populate("user", "name email");
+
+  if (!wallet) {
+    throw new AppError(httpStatus.NOT_FOUND, "Wallet does not exist");
+  }
+  return wallet;
+};
+
+const getAllWallets = async (query: Record<string, string>, role: string) => {
+  if (role !== Role.ADMIN) {
+    throw new AppError(
+      httpStatus.UNAUTHORIZED,
+      "Only admin can get all transactions"
+    );
+  }
+  const queryBuilder = new QueryBuilder(
+    Wallet.find().select("-transactions").populate("user", "name email"),
+    query,
+    "Wallet"
+  );
+  const wallets = await queryBuilder
+    .search(walletSearchableFields)
+    .filter()
+    .sort()
+    .field()
+    .paginate();
+  const [data, meta] = await Promise.all([
+    wallets.build(),
+    queryBuilder.getMeta(),
+  ]);
+  return {
+    data,
+    meta,
+  };
+};
+
 export const WalletServices = {
   addMoney,
   withdrawMoney,
   cashInMoney,
   cashOutMoney,
   sendMoney,
+  getMyWallet,
+  getSingleWallet,
+  getAllWallets,
 };
