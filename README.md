@@ -20,7 +20,7 @@
 * [Project Structure](#project-structure)
 * [Key Features](#key-features)
 * [Core Technologies](#core-technologies)
-* [All Dependencies](#all-dependencies)
+* [All Dependencies](#-all-dependencies)
 * [API Endpoints](#api-endpoints)
 * [Setup and Installation](#setup-and-installation)
 * [Environment Variables](#environment-variables)
