@@ -6,10 +6,6 @@
   <img src="https://img.shields.io/badge/Express.js-5.1.0-000000?style=for-the-badge&logo=express" alt="Express.js">
   <img src="https://img.shields.io/badge/MongoDB-8.18.2-47A248?style=for-the-badge&logo=mongodb" alt="MongoDB">
 </p>
-<p align="center">
-  <img src="https://img.shields.io/badge/code_style-ESLint-4B32C3?style=for-the-badge&logo=eslint" alt="Code Style: ESLint">
-  <img src="https://img.shields.io/badge/license-ISC-lightgrey?style=for-the-badge" alt="License">
-</p>
 
 > **A secure, scalable, and feature-rich backend for a modern digital wallet application, built with Node.js, Express, and TypeScript.**
 
@@ -20,10 +16,12 @@
 * [Project Structure](#️project-structure)
 * [Key Features](#key-features)
 * [Core Technologies](#️core-technologies)
-* [All Dependencies](#all-dependencies)
+* [All Dependencies](#-all-dependencies)
 * [API Endpoints](#api-endpoints)
 * [Setup and Installation](#️setup-and-installation)
 * [Environment Variables](#environment-variables)
+* [Admin Access](#admin-access)
+* [Contributing](#contributing)
 
 ---
 
@@ -204,3 +202,59 @@ DEFAULT_ADMIN_EMAIL=admin@wallet.com
 DEFAULT_ADMIN_PASSWORD=adminpass
 DEFAULT_ADMIN_PIN=1234
 ```
+
+---
+
+## 👑Admin Access
+
+> **IMPORTANT: Default Admin Credentials**
+>
+> Use these credentials to access the admin account:
+> 
+> **Email:** `admin@gmail.com`  
+> **Password:** `admin123`  
+> **PIN:** `1234`
+>
+> These credentials are automatically seeded when the application first runs.
+
+---
+
+### Production Deployment
+
+1. Build the TypeScript code:
+   ```bash
+   npm run build
+   ```
+
+2. Start the production server:
+   ```bash
+   npm start
+   ```
+
+### Docker Deployment
+
+A Dockerfile is included for containerized deployment:
+
+```bash
+# Build the Docker image
+docker build -t digital-wallet-api .
+
+# Run the container
+docker run -p 5000:5000 -d digital-wallet-api
+```
+
+---
+
+## 🤝Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please ensure your code follows the project's coding standards and includes appropriate tests.
+
+---
