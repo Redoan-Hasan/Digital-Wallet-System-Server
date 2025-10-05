@@ -15,7 +15,7 @@
 
 ---
 
-## 📖 Table of Contents
+## 📖Table of Contents
 * [Overview](#overview)
 * [Project Structure](#project-structure)
 * [Key Features](#key-features)
@@ -27,7 +27,7 @@
 
 ---
 
-## 📝 Overview
+## 📝Overview
 
 This project provides the complete backend infrastructure for a **Digital Wallet System**. It's more than just a simple API; it's a robust platform designed to handle financial transactions securely and efficiently. The system is built with a clean, modular architecture that separates concerns, making it easy to maintain and scale.
 
@@ -40,7 +40,7 @@ The core goal is to provide a multi-tenant environment supporting three distinct
 
 ---
 
-## 🏗️ Project Structure
+## 🏗️Project Structure
 
 The project follows a modular, feature-first architecture to ensure a clean and scalable codebase.
 
@@ -63,7 +63,7 @@ src/
 
 ---
 
-## ✨ Key Features
+## ✨Key Features
 
 ### 👤 **User Features**
 *   **Become an Agent:** Users can request to have their account upgraded to an `AGENT` account.
@@ -83,7 +83,7 @@ src/
 
 ---
 
-## 🛠️ Core Technologies
+## 🛠️Core Technologies
 
 This project leverages a modern and powerful stack to ensure scalability, security, and maintainability.
 
@@ -97,7 +97,7 @@ This project leverages a modern and powerful stack to ensure scalability, securi
 
 ---
 
-## 📦 All Dependencies
+## 📦All Dependencies
 
 ### Production Dependencies
 | Package | Version | Description |
@@ -128,7 +128,7 @@ This project leverages a modern and powerful stack to ensure scalability, securi
 
 ---
 
-## 🚀 API Endpoints
+## 🚀API Endpoints
 
 Here is a summary of the available API endpoints.
 
@@ -156,7 +156,7 @@ Here is a summary of the available API endpoints.
 
 ---
 
-## ⚙️ Setup and Installation
+## ⚙️Setup and Installation
 
 1.  **Clone the repository:**
     ```bash
@@ -179,7 +179,7 @@ Here is a summary of the available API endpoints.
 
 ---
 
-## 🔑 Environment Variables
+## 🔑Environment Variables
 
 Create a `.env` file in the project root and add the following variables.
 
