@@ -235,4 +235,4 @@ Please ensure your code follows the project's coding standards and includes appr
 
 ## 🚀 Run in Postman
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](URL_TO_YOUR_RAW_POSTMAN_COLLECTION_FILE)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://github.com/Redoan-Hasan/Digital-Wallet-System-Server/blob/development/postman/Digital%20Wallet%20System%20Api.postman_collection.json)
