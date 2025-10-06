@@ -94,25 +94,25 @@ const getMe = async (id: string) => {
 const getAllPendingAgents = async () => {
   const pendingAgents = await User.find({
     agentStatus: AgentStatus.PENDING,
-  })
+  });
   return {
     data: pendingAgents,
-    meta : {
-      total: pendingAgents.length
-    }
+    meta: {
+      total: pendingAgents.length,
+    },
   };
-}
+};
 const getAllApprovedAgents = async () => {
   const approvedAgents = await User.find({
     agentStatus: AgentStatus.APPROVED,
-  })
+  });
   return {
     data: approvedAgents,
-    meta : {
-      total: approvedAgents.length
-    }
+    meta: {
+      total: approvedAgents.length,
+    },
   };
-}
+};
 const updateUser = async (
   id: string,
   payload: Partial<IUser>,
@@ -184,7 +184,7 @@ const updateUser = async (
   });
   return updatedUser;
 };
-const makeMeAgent = async ( verifiedToken: JwtPayload) => {
+const makeMeAgent = async (verifiedToken: JwtPayload) => {
   if (verifiedToken.role !== Role.USER) {
     throw new AppError(
       httpStatus.FORBIDDEN,
@@ -201,9 +201,12 @@ const makeMeAgent = async ( verifiedToken: JwtPayload) => {
       "You are BLOCKED. You can't become an agent"
     );
   }
+  if (isUserExist.role === Role.AGENT) {
+    throw new AppError(httpStatus.FORBIDDEN, "You are already an agent");
+  }
   const updatedUser = await User.findByIdAndUpdate(
     verifiedToken.id,
-    { $set: { role: Role.AGENT, agentStatus: AgentStatus.PENDING } },
+    { $set: { agentStatus: AgentStatus.PENDING } },
     {
       new: true,
       runValidators: true,
@@ -230,7 +233,7 @@ const makeAgent = async (id: string, verifiedToken: JwtPayload) => {
   }
   const updatedUser = await User.findByIdAndUpdate(
     id,
-    { $set: { agentStatus: AgentStatus.APPROVED } },
+    { $set: { role: Role.AGENT, agentStatus: AgentStatus.APPROVED } },
     {
       new: true,
       runValidators: true,
@@ -248,5 +251,5 @@ export const userServices = {
   makeMeAgent,
   makeAgent,
   getAllPendingAgents,
-  getAllApprovedAgents
+  getAllApprovedAgents,
 };

@@ -10,10 +10,10 @@ const thirtyDaysAgo = new Date(now).setDate(now.getDate() - 30);
 const getUserStats = async () => {
   const totalUsersPromise = User.countDocuments();
   const totalActiveUsersPromise = User.countDocuments({
-    isActive: Status.ACTIVE,
+   status: Status.ACTIVE,
   });
   const totalBlockedUsersPromise = User.countDocuments({
-    isActive: Status.BLOCKED,
+    status: Status.BLOCKED,
   });
   const newUsersInLast7DaysPromise = User.countDocuments({
     createdAt: { $gte: sevenDaysAgo },

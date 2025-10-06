@@ -1,0 +1,1188 @@
+{
+	"info": {
+		"_postman_id": "159153ca-bac5-475a-8087-944b1b491c64",
+		"name": "Digital Wallet System Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42473048"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzdkZjM3MzEwMjRkNmIwZmQ5ZmM2NyIsImVtYWlsIjoic3VwZXJBZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJpYXQiOjE3NTg4NTE1MjcsImV4cCI6MTc1ODkzNzkyN30.9oPSs65CS3WLHBulrnqhUbF6ecQ-MtrxARTCYaPNAPc",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"redoantwo@gmail.com\",\r\n    \"name\" : \"redoan two\",\r\n    \"password\" : \"123456\",\r\n    \"pin\" : \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/register",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Redoan Hasan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/68e353e78b61e8a60c3d6171",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"68e353e78b61e8a60c3d6171"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make Agent -ADMIN",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/make-agent/68e354b05e49207fd7aef4f3",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"make-agent",
+								"68e354b05e49207fd7aef4f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make Me Agent",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1NGIwNWU0OTIwN2ZkN2FlZjRmMyIsImVtYWlsIjoicmVkb2FuYWdlbnRAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTk3MjkyMjcsImV4cCI6MTc1OTgxNTYyN30.cWP3OBdsxynsR7_VXH_psGZivNqdX3qg-j-VngTBuek",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/make-me-agent",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"make-me-agent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"redoan@gmail.com\",\r\n    \"password\" : \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/auth/login",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZGExNThiN2YyMzZiZGFjMWM3ZTBkYSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzE3NTYxLCJleHAiOjE3NTk4MDM5NjF9.ezdKWI1KrT_-VvZ40YrayDHQDyvPMSPKOmAy8XNVx9k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"redoanhasan@gmail.com\",\r\n    \"name\" : \"redoan\",\r\n    \"password\" : \"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "redoan",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "hasan",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "name,email",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Pending Agents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/all-pending-agents",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"all-pending-agents"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "redoan hasan ronaldo",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "hasan",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "name,email",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Approved Agents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/all-approved-agents",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"all-approved-agents"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "redoan hasan ronaldo",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "hasan",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "name,email",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/68e354b05e49207fd7aef4f3",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"68e354b05e49207fd7aef4f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/user/me",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get access token with refresh token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NzcwLCJleHAiOjE3NjIzMjA3NzB9.qcoJqNa7Ox7I2jcApxErNHFuZF78HrFhdlU26OuaybY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/auth/refresh-token",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZDg2ZDg1ZGE2OTYwZmQ5YjQzNTcyNSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5MTA4NjMxLCJleHAiOjE3NTkxOTUwMzF9.KA2BAGREpV7VUvSZj6JTKf_b1_Ru4ZXkG-oLXdxolCQ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"agentStatus\" : \"null\"\r\n}"
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/auth/logout",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"68e353e78b61e8a60c3d6171\",\r\n    \"newPassword\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/auth/reset-password",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\" : \"123456\",\r\n    \"newPassword\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/auth/change-password",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Pin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPin\" : \"1234\",\r\n    \"newPin\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/auth/change-pin",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"change-pin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "Add-Money",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1NGIwNWU0OTIwN2ZkN2FlZjRmMyIsImVtYWlsIjoicmVkb2FuYWdlbnRAZ21haWwuY29tIiwicm9sZSI6IkFHRU5UIiwiaWF0IjoxNzU5NzI5NDMyLCJleHAiOjE3NTk4MTU4MzJ9.7mJQ6ptCVtxJAwjvPLy6mv6NyihbAL6OA45YBmfu0Tg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 500,\r\n  \"addMoneySource\": \"CARD\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/add-money",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"add-money"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Withdraw-Money",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 100,\r\n    \"withdrawMoneySource\": \"BANK\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/withdraw-money",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"withdraw-money"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash In Money",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1NGIwNWU0OTIwN2ZkN2FlZjRmMyIsImVtYWlsIjoicmVkb2FuYWdlbnRAZ21haWwuY29tIiwicm9sZSI6IkFHRU5UIiwiaWF0IjoxNzU5NzI5NDMyLCJleHAiOjE3NTk4MTU4MzJ9.7mJQ6ptCVtxJAwjvPLy6mv6NyihbAL6OA45YBmfu0Tg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiverWallet\": \"68e353e78b61e8a60c3d6173\",\r\n    \"amount\": 100\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/cash-in-money",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"cash-in-money"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cash Out Money",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI5NjQxLCJleHAiOjE3NTk4MTYwNDF9.awE6l03lqxonfLUMn7OtMQchNVE4wg6wW0LVcmtyyo0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiverWallet\": \"68e354b05e49207fd7aef4f5\",\r\n    \"amount\": 100\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/cash-out-money",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"cash-out-money"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Money",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiverWallet\": \"68e3557d5e49207fd7aef518\",\r\n    \"amount\": 30\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/send-money",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"send-money"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Wallet",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/my-wallet",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"my-wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Wallet",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/68e353e78b61e8a60c3d6173",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"68e353e78b61e8a60c3d6173"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Wallets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/wallet/get-all-wallets?status=ACTIVE&searchTerm=80&field=balance,status",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallet",
+								"get-all-wallets"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ACTIVE"
+								},
+								{
+									"key": "searchTerm",
+									"value": "80"
+								},
+								{
+									"key": "sort",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "balance,status"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "40",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Get My Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE3MSIsImVtYWlsIjoicmVkb2FuQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU5NzI4NjQzLCJleHAiOjE3NTk4MTUwNDN9.6SEJNn7_xC_PbRCnj_1JWIrG-i6spmXNntGGCfuKT5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/transaction/get-my-transactions",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"transaction",
+								"get-my-transactions"
+							],
+							"query": [
+								{
+									"key": "transactionType",
+									"value": "ADD",
+									"disabled": true
+								},
+								{
+									"key": "addMoneySource",
+									"value": "BANK",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "200",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-createdAt",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "amount,transactionType",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/transaction/get-all-transactions",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"transaction",
+								"get-all-transactions"
+							],
+							"query": [
+								{
+									"key": "transactionType",
+									"value": "ADD_MONEY_BY_AGENT",
+									"disabled": true
+								},
+								{
+									"key": "addMoneySource",
+									"value": "CARD",
+									"disabled": true
+								},
+								{
+									"key": "searchTerm",
+									"value": "150",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "amount",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "40",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stats",
+			"item": [
+				{
+					"name": "User Stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"redoan\",\r\n    \"email\" : \"siuForLife@gmail.com\",\r\n    \"password\" : \"siuForLife@07\"\r\n}"
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/stats/user",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"stats",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction Stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZTM1M2U3OGI2MWU4YTYwYzNkNjE2ZiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU5NzI5MTU4LCJleHAiOjE3NTk4MTU1NTh9.9ZNg26t2LxeOgz5S4s6FNjR1OTDeewQibkzVxuJvTG4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"redoan\",\r\n    \"email\" : \"siuForLife@gmail.com\",\r\n    \"password\" : \"siuForLife@07\"\r\n}"
+						},
+						"url": {
+							"raw": "https://digital-wallet-system-server.vercel.app/api/v1/stats/transaction",
+							"protocol": "https",
+							"host": [
+								"digital-wallet-system-server",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"stats",
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

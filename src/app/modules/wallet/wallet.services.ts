@@ -596,16 +596,17 @@ const getAllWallets = async (query: Record<string, string>, role: string) => {
     );
   }
   const queryBuilder = new QueryBuilder(
-    Wallet.find().select("-transactions").populate("user", "name email"),
+    Wallet.find().populate("user", "name email"),
     query,
     "Wallet"
   );
-  const wallets = await queryBuilder
+  const wallets = queryBuilder
     .search(walletSearchableFields)
     .filter()
     .sort()
     .field()
     .paginate();
+  wallets.modelQuery = wallets.modelQuery.select("-transactions");
   const [data, meta] = await Promise.all([
     wallets.build(),
     queryBuilder.getMeta(),

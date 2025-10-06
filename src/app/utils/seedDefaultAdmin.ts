@@ -21,7 +21,7 @@ export const seedDefaultAdmin = async () => {
       envVars.DEFAULT_ADMIN_PIN,
       envVars.BCRYPT_SALT_ROUNDS
     );
-    const payload: IUser = {
+    const payload: Partial<IUser> = {
       name: "Super Admin",
       email: envVars.DEFAULT_ADMIN_EMAIL,
       password: hashedPassword,

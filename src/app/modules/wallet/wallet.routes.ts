@@ -33,7 +33,7 @@ router.post(
 router.post(
   "/cash-out-money",
   validateRequest(cashInAndOutMoneyZodSchema),
-  checkAuth(Role.AGENT),
+  checkAuth(Role.USER),
   WalletController.cashOutMoney
 );
 router.post(
