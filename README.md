@@ -154,6 +154,15 @@ Here is a summary of the available API endpoints.
 
 ---
 
+## 🚀 Run in Postman
+
+Easily explore and test all API endpoints using our Postman collection. Click the button below to import the collection directly into your Postman application or web client.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://github.com/Redoan-Hasan/Digital-Wallet-System-Server/blob/development/postman/Digital%20Wallet%20System%20Api.postman_collection.json)
+
+
+---
+
 ## ⚙️Setup and Installation
 
 1.  **Clone the repository:**
@@ -230,9 +239,3 @@ Contributions are welcome! Please follow these steps:
 5. Open a Pull Request
 
 Please ensure your code follows the project's coding standards and includes appropriate tests.
-
----
-
-## 🚀 Run in Postman
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://github.com/Redoan-Hasan/Digital-Wallet-System-Server/blob/development/postman/Digital%20Wallet%20System%20Api.postman_collection.json)
