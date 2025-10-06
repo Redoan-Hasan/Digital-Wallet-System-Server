@@ -232,3 +232,7 @@ Contributions are welcome! Please follow these steps:
 Please ensure your code follows the project's coding standards and includes appropriate tests.
 
 ---
+
+## 🚀 Run in Postman
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](URL_TO_YOUR_RAW_POSTMAN_COLLECTION_FILE)
