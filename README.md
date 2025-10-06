@@ -18,6 +18,7 @@
 * [Core Technologies](#️core-technologies)
 * [All Dependencies](#-all-dependencies)
 * [API Endpoints](#api-endpoints)
+* [Run in Postman](#run-in-postman)
 * [Setup and Installation](#️setup-and-installation)
 * [Environment Variables](#environment-variables)
 * [Admin Access](#admin-access)
