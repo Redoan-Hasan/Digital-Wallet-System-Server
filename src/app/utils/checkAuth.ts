@@ -10,7 +10,7 @@ import AppError from "../errorHelpers/AppError";
 export const checkAuth =
   (...authRoles: string[]) =>
   async (req: Request, res: Response, next: NextFunction) => {
-    const accessToken = req.headers.authorization;
+    const accessToken = req.headers.authorization || req.cookies.accessToken;
     if (!accessToken) {
       throw new AppError(httpStatus.UNAUTHORIZED, "No token provided");
     }

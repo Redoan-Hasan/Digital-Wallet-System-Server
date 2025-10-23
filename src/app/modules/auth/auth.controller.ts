@@ -27,7 +27,7 @@ const getNewAccessToken = catchHandler(
       throw new AppError(httpStatus.UNAUTHORIZED, "Refresh Token is required");
     }
     const tokenInfo = await AuthServices.getNewAccessToken(refreshToken);
-    // setCookie(res, tokenInfo)
+    setCookie(res, tokenInfo)
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
