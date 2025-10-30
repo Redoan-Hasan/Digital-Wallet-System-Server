@@ -18,10 +18,10 @@ export const withdrawMoneyZodSchema = z.object({
 });
 
 export const cashInAndOutMoneyZodSchema = z.object({
-  receiverWallet: z.string().regex(/^[0-9a-fA-F]{24}$/, "Invalid toAccount ObjectId"),
+  phone: z.string().regex(/^01\d{9}$/, "Invalid phone number"),
   amount: z.number().positive("Amount must be greater than 0"),
 });
 export const sendMoneyZodSchema = z.object({
-  receiverWallet: z.string().regex(/^[0-9a-fA-F]{24}$/, "Invalid toAccount ObjectId"),
+  phone: z.string().regex(/^01\d{9}$/, "Invalid phone number"),
   amount: z.number().positive("Amount must be greater than 0"),
 });

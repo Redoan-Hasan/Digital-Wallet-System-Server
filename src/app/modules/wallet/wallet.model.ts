@@ -19,12 +19,12 @@ const walletSchema = new Schema<IWallet>(
       enum: Object.values(Status),
       default: Status.ACTIVE,
     },
-    transactions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Transaction",
-      },
-    ],
+    // transactions: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Transaction",
+    //   },
+    // ],
   },
   {
     timestamps: true,

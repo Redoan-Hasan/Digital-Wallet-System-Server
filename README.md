@@ -71,7 +71,9 @@ src/
 *   **View Wallet & History:** Check current wallet balance and view a paginated list of all past transactions.
 
 ### 👨‍💼 **Agent Features**
-*   **Cash-In & Cash-Out:** Add money to a user's wallet (cash-in) or facilitate cash withdrawals (cash-out).
+*   **Add & Withdraw Money:** Add money to or withdraw money from their own wallet.
+*   **Cash-In:** Add money to a user's wallet upon receiving cash from them.
+*   **Cash-Out Facilitation:** Act as the destination for user-initiated cash-out requests, where the agent provides cash to the user.
 *   **Wallet & History:** View their own wallet balance and transaction history.
 
 ### 👑 **Admin Features**

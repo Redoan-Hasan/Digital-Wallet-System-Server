@@ -79,7 +79,8 @@ const getAllPendingAgents = catchHandler(
 )
 const getAllApprovedAgents = catchHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    if(req.user?.role !== Role.ADMIN){
+    const user = req.user || req.cookies.accessToken;
+    if(user?.role !== Role.ADMIN){
       throw new AppError(httpStatus.FORBIDDEN, "Only admin can access this route")
     }
     const result = await userServices.getAllApprovedAgents();
@@ -95,7 +96,7 @@ const updateUser = catchHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const userId = req.params.id;
     const payload = req.body;
-    const token = req.headers.authorization;
+    const token = req.headers.authorization || req.cookies.accessToken;
     const verifiedToken = verifyToken(
       token as string,
       envVars.JWT_ACCESS_TOKEN_SECRET
@@ -115,7 +116,7 @@ const updateUser = catchHandler(
 );
 const makeMeAgent = catchHandler(
   async (req: Request, res: Response, next: NextFunction) => {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization || req.cookies.accessToken;
     const verifiedToken = verifyToken(
       token as string,
       envVars.JWT_ACCESS_TOKEN_SECRET
@@ -135,7 +136,7 @@ const makeMeAgent = catchHandler(
 const makeAgent = catchHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const userId = req.params.id;
-    const token = req.headers.authorization;
+    const token = req.headers.authorizationb || req.cookies.accessToken;
     const verifiedToken = verifyToken(
       token as string,
       envVars.JWT_ACCESS_TOKEN_SECRET

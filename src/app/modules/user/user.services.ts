@@ -17,6 +17,10 @@ const createUser = async (payload: IUser) => {
     if (isUserExist) {
       throw new AppError(httpStatus.CONFLICT, "Email already exists");
     }
+    const isPhoneExist = await User.findOne({ phone: payload.phone });
+    if (isPhoneExist) {
+      throw new AppError(httpStatus.CONFLICT, "Phone number already exists");
+    }
     if (payload?.password) {
       const hashPassword = await bcrypt.hash(
         payload.password,
@@ -138,7 +142,7 @@ const updateUser = async (
       );
     }
   }
-  if (isUserExist.status === "BLOCKED") {
+  if (isUserExist.status === Status.BLOCKED && payload.status !== Status.ACTIVE) {
     throw new AppError(
       httpStatus.FORBIDDEN,
       "You are BLOCKED. You can't update your profile"
@@ -174,7 +178,9 @@ const updateUser = async (
     payload?.agentStatus &&
     payload.agentStatus !== AgentStatus.PENDING &&
     payload.agentStatus !== AgentStatus.APPROVED &&
-    payload.agentStatus !== AgentStatus.SUSPEND
+    payload.agentStatus !== AgentStatus.SUSPEND &&
+    payload.agentStatus !== AgentStatus.REJECTED &&
+    payload.agentStatus !== AgentStatus.NONE
   ) {
     throw new AppError(httpStatus.BAD_REQUEST, "Invalid agent status");
   }

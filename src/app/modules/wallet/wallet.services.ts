@@ -73,7 +73,7 @@ const addMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
       { session }
     );
     wallet.balance += payload.amount;
-    wallet.transactions?.push(transaction[0]._id);
+    // wallet.transactions?.push(transaction[0]._id);
     await wallet.save({ session });
     await session.commitTransaction();
     session.endSession();
@@ -156,7 +156,7 @@ const withdrawMoney = async (
       }
     );
     wallet.balance = wallet.balance - (payload.amount + transactionFee);
-    wallet.transactions?.push(transaction[0]._id);
+    // wallet.transactions?.push(transaction[0]._id);
     await wallet.save({ session });
     await session.commitTransaction();
     session.endSession();
@@ -169,13 +169,13 @@ const withdrawMoney = async (
 };
 
 // cashin money by agent
-const cashInMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
+const cashInMoney = async (payload: ITransaction & {phone : string}, decodedToken: JwtPayload) => {
   let transactionFee = 0;
 
-  if (!payload.receiverWallet) {
+  if (!payload.phone) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
-      "toAccount (receiver wallet) is required for cash-in"
+      "Receiver phone number is required for cash-in"
     );
   }
   if (payload.amount <= 0) {
@@ -216,7 +216,12 @@ const cashInMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
     throw new AppError(httpStatus.FORBIDDEN, "Agent wallet is blocked");
   }
 
-  const receiverWallet = await Wallet.findById(payload.receiverWallet);
+  const receiver = await User.findOne({ phone: payload.phone });
+  if (!receiver) {
+    throw new AppError(httpStatus.NOT_FOUND, "Receiver does not exist");
+  }
+
+  const receiverWallet = await Wallet.findById(receiver.wallet);
   if (!receiverWallet) {
     throw new AppError(httpStatus.NOT_FOUND, "Receiver wallet does not exist");
   }
@@ -287,8 +292,8 @@ const cashInMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
     senderWallet.balance -= payload.amount + transactionFee;
     receiverWallet.balance += payload.amount;
 
-    senderWallet.transactions?.push(transaction[0]._id);
-    receiverWallet.transactions?.push(transaction[0]._id);
+    // senderWallet.transactions?.push(transaction[0]._id);
+    // receiverWallet.transactions?.push(transaction[0]._id);
 
     await senderWallet.save({ session });
     await receiverWallet.save({ session });
@@ -309,15 +314,15 @@ const cashInMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
 
 // cashout money by user
 const cashOutMoney = async (
-  payload: ITransaction,
+  payload: ITransaction & {phone:string},
   decodedToken: JwtPayload
 ) => {
   let transactionFee = 0;
 
-  if (!payload.receiverWallet) {
+  if (!payload.phone) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
-      "Agent wallet is required for cash-out"
+      "Agent phone number is required for cash-out"
     );
   }
   if (payload.amount <= 0) {
@@ -358,7 +363,12 @@ const cashOutMoney = async (
     throw new AppError(httpStatus.FORBIDDEN, "Your wallet is blocked");
   }
 
-  const receiverWallet = await Wallet.findById(payload.receiverWallet);
+  const agent = await User.findOne({ phone: payload.phone });
+  if (!agent) {
+    throw new AppError(httpStatus.NOT_FOUND, "Agent does not exist");
+  }
+
+  const receiverWallet = await Wallet.findById(agent.wallet);
   if (!receiverWallet) {
     throw new AppError(
       httpStatus.NOT_FOUND,
@@ -372,10 +382,6 @@ const cashOutMoney = async (
     );
   }
 
-  const agent = await User.findById(receiverWallet.user);
-  if (!agent) {
-    throw new AppError(httpStatus.NOT_FOUND, "Agent does not exist");
-  }
   if (agent.role !== Role.AGENT) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
@@ -407,10 +413,10 @@ const cashOutMoney = async (
       [
         {
           ...payload,
-          wallet: sender._id,
-          senderWallet: sender._id,
+          wallet: senderWallet._id,
+          senderWallet: senderWallet._id,
           receiverWallet: receiverWallet._id,
-          user: agent._id,
+          user: sender._id,
           status: TransactionStatus.COMPLETED,
           transactionFee,
           transactionType: TransactionType.CASH_OUT,
@@ -422,8 +428,8 @@ const cashOutMoney = async (
     senderWallet.balance -= payload.amount + transactionFee;
     receiverWallet.balance += payload.amount;
 
-    senderWallet.transactions?.push(transaction[0]._id);
-    receiverWallet.transactions?.push(transaction[0]._id);
+    // senderWallet.transactions?.push(transaction[0]._id);
+    // receiverWallet.transactions?.push(transaction[0]._id);
 
     await senderWallet.save({ session });
     await receiverWallet.save({ session });
@@ -443,13 +449,13 @@ const cashOutMoney = async (
 };
 
 // send money by user
-const sendMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
+const sendMoney = async (payload: ITransaction & {phone:string}, decodedToken: JwtPayload) => {
   let transactionFee = 0;
 
-  if (!payload.receiverWallet) {
+  if (!payload.phone) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
-      "Receiver wallet is required for sending money"
+      "Receiver phone number is required for sending money"
     );
   }
   if (payload.amount <= 0) {
@@ -484,7 +490,12 @@ const sendMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
     throw new AppError(httpStatus.FORBIDDEN, "Your wallet is blocked");
   }
 
-  const receiverWallet = await Wallet.findById(payload.receiverWallet);
+  const receiver = await User.findOne({ phone: payload.phone });
+  if (!receiver) {
+    throw new AppError(httpStatus.NOT_FOUND, "Receiver does not exist");
+  }
+
+  const receiverWallet = await Wallet.findById(receiver.wallet);
   if (!receiverWallet) {
     throw new AppError(httpStatus.NOT_FOUND, "Receiver wallet does not exist");
   }
@@ -547,8 +558,8 @@ const sendMoney = async (payload: ITransaction, decodedToken: JwtPayload) => {
     senderWallet.balance -= payload.amount + transactionFee;
     receiverWallet.balance += payload.amount;
 
-    senderWallet.transactions?.push(transaction[0]._id);
-    receiverWallet.transactions?.push(transaction[0]._id);
+    // senderWallet.transactions?.push(transaction[0]._id);
+    // receiverWallet.transactions?.push(transaction[0]._id);
 
     await senderWallet.save({ session });
     await receiverWallet.save({ session });

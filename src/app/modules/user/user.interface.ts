@@ -3,6 +3,7 @@ export enum AgentStatus {
   PENDING = 'PENDING',
   APPROVED = 'APPROVED',
   SUSPEND = 'SUSPEND',
+  REJECTED = 'REJECTED',
   NONE = "NONE"
 }
 
@@ -22,6 +23,7 @@ export interface IUser {
   wallet: Types.ObjectId;
   name: string;
   email: string;
+  phone: string;
   password: string;
   pin : string;
   role: Role;

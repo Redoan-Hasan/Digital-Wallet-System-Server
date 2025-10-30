@@ -5,6 +5,7 @@ export class QueryBuilder<T> {
   public modelQuery: Query<T[], T>;
   public readonly query: Record<string, string>;
   public readonly modelType: string;
+  
   constructor(
     modelQuery: Query<T[], T>,
     query: Record<string, string>,
@@ -14,6 +15,7 @@ export class QueryBuilder<T> {
     this.query = query;
     this.modelType = modelType;
   }
+  
   filter(): this {
     const filter = { ...this.query };
     for (const field of excludedFields) {
@@ -25,19 +27,20 @@ export class QueryBuilder<T> {
   }
 
   search(searchableFileds: string[]): this {
-    const searchTerm = this.query?.searchTerm || "";
+    const searchTerm = this.query?.searchTerm;
+    
+    if (!searchTerm) {
+      return this;
+    }
+    
     const isNumber = !isNaN(Number(searchTerm)) && searchTerm !== "";
 
     const searchQuery = searchableFileds.map((field) => {
       if (isNumber) {
         if (this.modelType === "Transaction") {
-          return {
-            amount: Number(searchTerm),
-          };
+          return { amount: Number(searchTerm) };
         } else if (this.modelType === "Wallet") {
-          return {
-            balance: Number(searchTerm),
-          };
+          return { balance: Number(searchTerm) };
         }
       }
 
@@ -75,9 +78,12 @@ export class QueryBuilder<T> {
   }
 
   async getMeta() {
-    const totalCount = await this.modelQuery.model.countDocuments();
+    const filter = this.modelQuery.getFilter();
+    const totalCount = await this.modelQuery.model.countDocuments(filter);
+    
     const page = Number(this.query?.page) || 1;
     const limit = Number(this.query?.limit) || 10;
+    
     return {
       page,
       limit,

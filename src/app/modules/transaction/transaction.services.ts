@@ -4,6 +4,7 @@ import { Role } from "../user/user.interface";
 import { Transaction } from "./transaction.model";
 import { QueryBuilder } from "../../utils/QueryBuilder";
 import { transactionSearchableFields } from "./transactions.constants";
+import { User } from "../user/user.model";
 
 const getMyTransactions = async (
   query: Record<string, string>,
@@ -16,10 +17,39 @@ const getMyTransactions = async (
       "Admin can't get my transactions cause you don't have any wallet"
     );
   }
-  const queryBuilder = new QueryBuilder(Transaction.find({ user: id }), query , "Transaction");
+  const user = await User.findById(id);
+  const queryBuilder = new QueryBuilder(
+    Transaction.find({
+      $or: [
+        { user: user?._id },
+        { wallet: user?.wallet },
+        { senderWallet: user?.wallet },
+        { receiverWallet: user?.wallet },
+      ],
+    })
+      .populate("user", "name email phone")
+      .populate({
+        path: "receiverWallet",
+        select: "user",
+        populate: {
+          path: "user",
+          select: "name phone -_id",
+        },
+      })
+      .populate({
+        path: "senderWallet",
+        select: "user",
+        populate: {
+          path: "user",
+          select: "name phone -_id",
+        },
+      }),
+    query,
+    "Transaction"
+  );
   const transactions = await queryBuilder
-    .filter()
     .search(transactionSearchableFields)
+    .filter()
     .sort()
     .field()
     .paginate();
@@ -43,8 +73,26 @@ const getAllTransactions = async (
     );
   }
   const queryBuilder = new QueryBuilder(
-    Transaction.find().populate("user", "name email"),
-    query , "Transaction"
+    Transaction.find()
+      .populate("user", "name email phone")
+      .populate({
+        path: "receiverWallet",
+        select: "user",
+        populate: {
+          path: "user",
+          select: "name phone",
+        },
+      })
+      .populate({
+        path: "senderWallet",
+        select: "user",
+        populate: {
+          path: "user",
+          select: "name phone",
+        },
+      }),
+    query,
+    "Transaction"
   );
   const transactions = await queryBuilder
     .search(transactionSearchableFields)

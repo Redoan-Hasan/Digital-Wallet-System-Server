@@ -5,5 +5,5 @@ export interface IWallet {
   user: Types.ObjectId;
   balance: number; 
   status: Status; 
-  transactions?: Types.ObjectId[];
+  // transactions?: Types.ObjectId[];
 }
