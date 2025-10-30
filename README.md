@@ -13,8 +13,8 @@
 
 ## 🌐 Live Demo
 
--   **Frontend:** [https://digital-wallet-system-frontend.vercel.app/](https://digital-wallet-system-frontend.vercel.app/)
--   **Backend:** [https://digital-wallet-system-server.vercel.app/](https://digital-wallet-system-server.vercel.app/)
+-   **Frontend:** [https://vaultpay-iota.vercel.app](https://vaultpay-iota.vercel.app)
+-   **Backend:** [https://digital-wallet-system-server.vercel.app](https://digital-wallet-system-server.vercel.app)
 
 ---
 
